@@ -2,15 +2,36 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title> simple chat room </title>
+        <title> netjam </title>
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
+      <div class="delaycontainer">
+        delayTime
+        <input type="range" min="1" max="100" value="50" class="slider" id="delayTime">
+        feedback
+        <input type="range" min="1" max="100" value="50" class="slider" id="feedback">
+        delaydrywet
+        <input type="range" min="1" max="100" value="50" class="slider" id="delaydrywet">
+      </div>
+      <div class="slidecontainer">
+        attack
+        <input type="range" min="1" max="100" value="50" class="slider" id="attack">
+        decay
+        <input type="range" min="1" max="100" value="50" class="slider" id="decay">
+        sustain
+        <input type="range" min="1" max="100" value="50" class="slider" id="sustain">
+        release
+        <input type="range" min="1" max="100" value="50" class="slider" id="release">
+      </div>
 
 
 
         <script src="/socket.io/socket.io.js"></script>
+        <script src="js/Tone.min.js"></script>
+        <script src="js/xtramath.js"></script>
         <script src="js/SineButton.js"></script>
         <script src="js/main.js"></script>
+
     </body>
 </html>
