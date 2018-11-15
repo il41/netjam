@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
+      <p class="gui" id "outputScreen">HELLO</p>
       <div class="delaycontainer">
         delayTime
         <input type="range" min="1" max="100" value="50" class="slider" id="delayTime">
@@ -14,14 +15,15 @@
         delaydrywet
         <input type="range" min="1" max="100" value="50" class="slider" id="delaydrywet">
       </div>
-      <div class="slidecontainer">
-        attack
+
+      <div class="matrixADSRcontainer">
+        <x>attack</x>
         <input type="range" min="1" max="100" value="50" class="slider" id="attack">
-        decay
+        <x>decay</x>
         <input type="range" min="1" max="100" value="50" class="slider" id="decay">
-        sustain
+        <x>sustain</x>
         <input type="range" min="1" max="100" value="50" class="slider" id="sustain">
-        release
+        <x>release</x>
         <input type="range" min="1" max="100" value="50" class="slider" id="release">
       </div>
 

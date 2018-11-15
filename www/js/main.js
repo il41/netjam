@@ -31,17 +31,30 @@ delayDryWet.addEventListener('change',()=>{
     let dryvalue = Math.map(delayDryWet.value, 1, 100, 1, 0)
     delayWet.gain.value = wetvalue
     delayDry.gain.value = dryvalue
+    let slider = document.body.querySelector("#delaydrywet")
+    console.log(slider.value)
+    let outputScreen = document.body.querySelector("#outputScreen")
+    outputScreen.innerHTML = slider.value
+    console.log(slider.value)
   }
 )
 
+let matrixAttack = document.body.querySelector("#attack")
+matrixAttack.addEventListener('change',()=>{
+  for (let i=0; i<buttonArr.length; i++){
+    let value = Math.map(matrixAttack.value, 1, 100, 0.005, 2)
+    buttonArr[i].synth.attack = value
+  }
+})
+
 let matrixDelayTime = document.body.querySelector("#delayTime")
 matrixDelayTime.addEventListener('change',()=>{
-    let value = Math.map(matrixDelayTime.value, 1, 100, 0, 10)
+    let value = Math.map(matrixDelayTime.value, 1, 100, 0., 10)
     delay.delayTime.value = value
 })
 
 let matrixFeedback = document.body.querySelector("#feedback")
 matrixFeedback.addEventListener('change',()=>{
-    let value = Math.map(matrixFeedback.value, 1, 100, 0, 10)
+    let value = Math.map(matrixFeedback.value, 1, 100, 0, 1)
     delay.feedback.value = value
 })

@@ -1,11 +1,14 @@
 
 body {
     margin:0;
+    background-color: blue;
 }
 
-#gui {
+.gui {
+    border-style: double;
     background-color: #646464;
     padding: 20px;
+    text-align: center;
 }
 
 h1 {
@@ -13,4 +16,42 @@ h1 {
     font-family: sans-serif;
     text-transform: uppercase;
     color: #fff;
+}
+.matrixADSRcontainer{
+  font-style: italic;
+  font-family: sans-serif;
+  text-align: center;
+  text-shadow: 10px, 10px, 10px;
+  column-count: 5;
+
+}
+.matrixADSRcontainer > input{
+  color: #056364;
+  padding: 1rem;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 50px;
+  border-collapse: separate;
+  background-color: #c9c9c9;
+}
+.delaycontainer > input{
+  color: #056364;
+  padding: 0rem;
+  border-width: 10px;
+  border-style: inset;
+  border-collapse: separate;
+  background-color: #056364;
+}
+
+.delaycontainer{
+  color: white;
+  background-color: #123456;
+  border-style: dashed;
+
+}
+
+.matrixADSRcontainer{
+  background-color: #888888;
+  border-style: inset;
+  border-radius: 150px;
 }
