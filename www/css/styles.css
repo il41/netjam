@@ -1,7 +1,16 @@
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
 
 body {
     margin:0;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .gui {
@@ -25,15 +34,7 @@ h1 {
   column-count: 5;
 
 }
-.matrixADSRcontainer > input{
-  color: #056364;
-  padding: 1rem;
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 50px;
-  border-collapse: separate;
-  background-color: #c9c9c9;
-}
+
 .delaycontainer > input{
   color: #056364;
   padding: 0rem;
@@ -48,6 +49,16 @@ h1 {
   background-color: #123456;
   border-style: dashed;
 
+}
+
+.matrixADSRcontainer > input{
+  color: #056364;
+  padding: 1rem;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 50px;
+  border-collapse: separate;
+  background-color: #c9c9c9;
 }
 
 .matrixADSRcontainer{

@@ -2,7 +2,7 @@
 // socket.io library (included in the index.html page)
 const socket = io()
 
-let cMajorScale = ['C4','D4','Eb4','F4','G4','A4','Bb4','C5']
+let cMajorScale = ['D3','F3','G3','A3','Bb3','C4','D4','Eb4','F4','G4','A4','Bb4','C5','D5','Eb5','F5','G5','A5','Bb5','D6']
 const comp = new Tone.Compressor().toMaster()
 const delay = new Tone.FeedbackDelay()
 const delayDry = new Tone.Gain()
@@ -22,13 +22,19 @@ for(let i = 0; i < 50; i++){
   buttonArr.push(b)
 }
 
-
+let matrixAttack = document.body.querySelector("#attack")
+matrixAttack.addEventListener('change',()=>{
+  for (let i=0; i<buttonArr.length; i++){
+    let value = Math.map(matrixAttack.value, 1, 1000, 0.005, 2)
+    buttonArr[i].Synth.envelope.attack = value
+  }
+})
 
 
 let delayDryWet = document.body.querySelector("#delaydrywet")
 delayDryWet.addEventListener('change',()=>{
-    let wetvalue = Math.map(delayDryWet.value, 1, 100, 0, 1)
-    let dryvalue = Math.map(delayDryWet.value, 1, 100, 1, 0)
+    let wetvalue = Math.map(delayDryWet.value, 1, 1000, 0, 1)
+    let dryvalue = Math.map(delayDryWet.value, 1, 1000, 1, 0)
     delayWet.gain.value = wetvalue
     delayDry.gain.value = dryvalue
     let slider = document.body.querySelector("#delaydrywet")
@@ -39,22 +45,21 @@ delayDryWet.addEventListener('change',()=>{
   }
 )
 
-let matrixAttack = document.body.querySelector("#attack")
-matrixAttack.addEventListener('change',()=>{
-  for (let i=0; i<buttonArr.length; i++){
-    let value = Math.map(matrixAttack.value, 1, 100, 0.005, 2)
-    buttonArr[i].synth.attack = value
-  }
-})
-
 let matrixDelayTime = document.body.querySelector("#delayTime")
 matrixDelayTime.addEventListener('change',()=>{
-    let value = Math.map(matrixDelayTime.value, 1, 100, 0., 10)
+    let value = Math.map(matrixDelayTime.value, 1, 1000, 0., 10)
     delay.delayTime.value = value
 })
 
 let matrixFeedback = document.body.querySelector("#feedback")
 matrixFeedback.addEventListener('change',()=>{
-    let value = Math.map(matrixFeedback.value, 1, 100, 0, 1)
+    let value = Math.map(matrixFeedback.value, 1, 1000, 0, 1)
     delay.feedback.value = value
 })
+
+document.addEventListener('keydown',function(e){
+        button = buttonArr[Math.round(Math.map(e.keyCode, 1, 230, 1, 30))]
+        console.log(button)
+        button.play()
+        button.noteOff()
+      })

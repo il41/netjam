@@ -7,24 +7,25 @@
     </head>
     <body>
       <p class="gui" id "outputScreen">HELLO</p>
+      <div class= "noselect">
       <div class="delaycontainer">
-        delayTime
-        <input type="range" min="1" max="100" value="50" class="slider" id="delayTime">
+        delay time
+        <input type="range" min="1" max="1000" value="50" class="slider" id="delayTime">
         feedback
-        <input type="range" min="1" max="100" value="50" class="slider" id="feedback">
-        delaydrywet
-        <input type="range" min="1" max="100" value="50" class="slider" id="delaydrywet">
+        <input type="range" min="1" max="1000" value="50" class="slider" id="feedback">
+        delay dry/wet
+        <input type="range" min="1" max="1000" value="50" class="slider" id="delaydrywet">
       </div>
 
       <div class="matrixADSRcontainer">
         <x>attack</x>
-        <input type="range" min="1" max="100" value="50" class="slider" id="attack">
+        <input type="range" min="1" max="1000" value="50" class="slider" id="attack">
         <x>decay</x>
-        <input type="range" min="1" max="100" value="50" class="slider" id="decay">
+        <input type="range" min="1" max="1000" value="50" class="slider" id="decay">
         <x>sustain</x>
-        <input type="range" min="1" max="100" value="50" class="slider" id="sustain">
+        <input type="range" min="1" max="1000" value="50" class="slider" id="sustain">
         <x>release</x>
-        <input type="range" min="1" max="100" value="50" class="slider" id="release">
+        <input type="range" min="1" max="1000" value="50" class="slider" id="release">
       </div>
 
 
@@ -32,7 +33,7 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="js/Tone.min.js"></script>
         <script src="js/xtramath.js"></script>
-        <script src="js/SineButton.js"></script>
+        <script src="js/SineButton.js"></script></div>
         <script src="js/main.js"></script>
 
     </body>
