@@ -4,12 +4,14 @@ const socket = io()
 
 let cMajorScale = ['D3','F3','G3','A3','Bb3','C4','D4','Eb4','F4','G4','A4','Bb4','C5','D5','Eb5','F5','G5','A5','Bb5','D6']
 const comp = new Tone.Compressor().toMaster()
+const user = new Tone.Gain()
+user.connect(comp)
 const delay = new Tone.FeedbackDelay()
 const delayDry = new Tone.Gain()
 const delayWet = new Tone.Gain()
 delay.connect(delayWet)
-delayWet.connect(comp)
-delayDry.connect(comp)
+delayWet.connect(user)
+delayDry.connect(user)
 const inputnode = new Tone.Gain()
 inputnode.connect(delay)
 inputnode.connect(delayDry)
@@ -21,6 +23,13 @@ for(let i = 0; i < 50; i++){
   let b = new SineButton(cMajorScale[idx],parent,inputnode)
   buttonArr.push(b)
 }
+
+let userVolume = document.body.querySelector("#userVolume")
+userVolume.addEventListener('change',()=>{
+  let value = Math.map(userVolume.value, 1, 1000, 0, 1)
+  user.gain.value = value
+  console.log(value)
+})
 
 let matrixAttack = document.body.querySelector("#attack")
 matrixAttack.addEventListener('change',()=>{
@@ -41,7 +50,7 @@ matrixDecay.addEventListener('change',()=>{
 let matrixSustain = document.body.querySelector("#sustain")
 matrixSustain.addEventListener('change',()=>{
   for (let i=0; i<buttonArr.length; i++){
-    let value = Math.map(matrixSustain.value, 1, 1000, 0.005, 1)
+    let value = Math.map(matrixSustain.value, 1, 1000, 0.0, 1)
     buttonArr[i].synth.envelope.sustain = value
   }
 })
@@ -49,7 +58,7 @@ matrixSustain.addEventListener('change',()=>{
 let matrixRelease = document.body.querySelector("#release")
 matrixRelease.addEventListener('change',()=>{
   for (let i=0; i<buttonArr.length; i++){
-    let value = Math.map(matrixRelease.value, 1, 1000, 0.005, 2)
+    let value = Math.map(matrixRelease.value, 1, 1000, 0.0001, 2)
     buttonArr[i].synth.envelope.release = value
   }
 })

@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-      <p class="gui" id "outputScreen">HELLO</p>
+      <div class="gui" id "outputScreen">user volume<input type="range" min="1" max="1000" value="50" class="slider" id="userVolume"></div>
       <div class= "noselect">
       <div class="delaycontainer">
         delay time
@@ -33,7 +33,7 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="js/Tone.min.js"></script>
         <script src="js/xtramath.js"></script>
-        <script src="js/SineButton.js"></script></div>
+        <div id="matrix"><script src="js/SineButton.js"></script></div></div>
         <script src="js/main.js"></script>
 
     </body>
