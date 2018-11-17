@@ -26,10 +26,33 @@ let matrixAttack = document.body.querySelector("#attack")
 matrixAttack.addEventListener('change',()=>{
   for (let i=0; i<buttonArr.length; i++){
     let value = Math.map(matrixAttack.value, 1, 1000, 0.005, 2)
-    buttonArr[i].Synth.envelope.attack = value
+    buttonArr[i].synth.envelope.attack = value
   }
 })
 
+let matrixDecay = document.body.querySelector("#decay")
+matrixDecay.addEventListener('change',()=>{
+  for (let i=0; i<buttonArr.length; i++){
+    let value = Math.map(matrixDecay.value, 1, 1000, 0, 1)
+    buttonArr[i].synth.envelope.decay = value
+  }
+})
+
+let matrixSustain = document.body.querySelector("#sustain")
+matrixSustain.addEventListener('change',()=>{
+  for (let i=0; i<buttonArr.length; i++){
+    let value = Math.map(matrixSustain.value, 1, 1000, 0.005, 1)
+    buttonArr[i].synth.envelope.sustain = value
+  }
+})
+
+let matrixRelease = document.body.querySelector("#release")
+matrixRelease.addEventListener('change',()=>{
+  for (let i=0; i<buttonArr.length; i++){
+    let value = Math.map(matrixRelease.value, 1, 1000, 0.005, 2)
+    buttonArr[i].synth.envelope.release = value
+  }
+})
 
 let delayDryWet = document.body.querySelector("#delaydrywet")
 delayDryWet.addEventListener('change',()=>{
