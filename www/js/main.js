@@ -16,10 +16,15 @@ const inputnode = new Tone.Gain()
 inputnode.connect(delay)
 inputnode.connect(delayDry)
 
+let matrix = document.createElement("matrixdiv"){
+  this.style.
+}
+document.body.appendChild(matrix)
+
 let buttonArr = []
 for(let i = 0; i < 50; i++){
   let idx = i % cMajorScale.length
-  let parent = document.body
+  let parent = matrix
   let b = new SineButton(cMajorScale[idx],parent,inputnode)
   buttonArr.push(b)
 }
