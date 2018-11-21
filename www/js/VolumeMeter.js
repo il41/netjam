@@ -3,7 +3,7 @@ class VolumeMeter{
 		}).connect(meter).toMaster();
 
 		//drawing the FFT
-		var meterContext = $("<canvas>",{
+		let meterContext = $("<canvas>",{
 			"id" : "fft"
 		}).appendTo("#volume").get(0).getContext("2d");
 		var meterGraident;
