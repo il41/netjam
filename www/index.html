@@ -37,9 +37,13 @@
         <!-- <textarea name="message" rows="1" cols="130">
           Write your own scale here. For example: ['C4','Eb2','Bb5','D6'] or ['C#3','G#3','C#4','G#4','C#5','G#5']
         </textarea> -->
-        + scale:<input type="scale" id="scaleinput">
+        + scale:
+        <!-- <input type="scale" id="scaleinput">
         <input type="submit" value="add">
-        </div>
+        </div> -->
+        <input type="text" placeholder="scale name" id="userscalename"size="10">
+        <input type="userscaletext" placeholder="['C4','Eb4','A4','D5','E#5']" id="userscaletext">
+        <button id="enter">enter</button>
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="js/Tone.min.js"></script>

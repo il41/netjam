@@ -6,6 +6,10 @@ let fourcircle = ['C3','F4','Bb5','Eb5','Ab6','Db6','Gb6','B7','E7','A7']
 // socket.io library (included in the index.html page)
 const socket = io()
 
+const enter = document.querySelector('#enter')
+const userscaletxt = document.querySelector('#userscaletext')
+const scalename = document.querySelector('#userscalename')
+
 let scale = ['D3','F3','G3','A3','Bb3','C4','D4','Eb4','F4','G4','A4','Bb4','C5','D5','Eb5','F5','G5','A5','Bb5','D6']
 var scaleSelect = document.getElementById("scaleSelect");
 //scaleSelect.value = scale
