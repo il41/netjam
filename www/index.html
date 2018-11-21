@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-      <div class="gui" id "outputScreen">user volume</div><input type="range" min="1" max="1000" value="50" class="slider" id="userVolume"></div>
+      <div class="gui" id "outputScreen">user volume<input type="range" min="1" max="1000" value="50" class="slider" id="userVolume"></div>
       <div class= "noselect">
       <div class="delaycontainer">
         delay time
@@ -27,7 +27,17 @@
         <x>release</x>
         <input type="range" min="1" max="1000" value="50" class="slider" id="release">
       </div>
-
+        <div class="scale">
+          <select name="scales" id="scaleSelect">
+            <option value="cMaj">cMaj</option>
+            <option value="cMin">cMin</option>
+            <option value="fifthcircle">fifthcircle</option>
+            <option value="fourthcircle">fourthcircle</option>
+          </select>
+        <textarea name="message" rows="1" cols="130">
+          Write your own scale here. For example: ['C4','Eb2','Bb5','D6'] or ['C#3','G#3','C#4','G#4','C#5','G#5']
+        </textarea>
+        </div>
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="js/Tone.min.js"></script>

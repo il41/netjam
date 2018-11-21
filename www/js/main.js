@@ -1,8 +1,15 @@
+let cMaj = ['C3','D3','E3','F3','G3','A4','B4','C4','D4','E4','G4']
+let cMin = ['C3','D3','Eb3','F3','G3','Ab4','Bb4','C4','D4','Eb4','G4']
+let fivecircle = ['G3','C3','G4','D3','A4','E4','B5','F#5','C#6','G#6','D#6','A#7','F7','C7']
+let fourcircle = ['C3','F4','Bb5','Eb5','Ab6','Db6','Gb6','B7','E7','A7']
 // here we create a socket variable (our connection to the server) using the
 // socket.io library (included in the index.html page)
 const socket = io()
 
-let cMajorScale = ['D3','F3','G3','A3','Bb3','C4','D4','Eb4','F4','G4','A4','Bb4','C5','D5','Eb5','F5','G5','A5','Bb5','D6']
+let scale = ['D3','F3','G3','A3','Bb3','C4','D4','Eb4','F4','G4','A4','Bb4','C5','D5','Eb5','F5','G5','A5','Bb5','D6']
+var scaleSelect = document.getElementById("scaleSelect");
+//scaleSelect.value = scale
+
 const comp = new Tone.Compressor().toMaster()
 const user = new Tone.Gain()
 user.connect(comp)
@@ -16,16 +23,14 @@ const inputnode = new Tone.Gain()
 inputnode.connect(delay)
 inputnode.connect(delayDry)
 
-let matrix = document.createElement("matrixdiv"){
-  this.style.
-}
+let matrix = document.createElement("matrixdiv")
 document.body.appendChild(matrix)
 
 let buttonArr = []
-for(let i = 0; i < 50; i++){
-  let idx = i % cMajorScale.length
+for(let i = 0; i < 80; i++){
+  let idx = i % scale.length
   let parent = matrix
-  let b = new SineButton(cMajorScale[idx],parent,inputnode)
+  let b = new SineButton(scale[idx],parent,inputnode)
   buttonArr.push(b)
 }
 
@@ -77,7 +82,7 @@ delayDryWet.addEventListener('change',()=>{
     let slider = document.body.querySelector("#delaydrywet")
     console.log(slider.value)
     let outputScreen = document.body.querySelector("#outputScreen")
-    outputScreen.innerHTML = slider.value
+    outputScreen.innerHTML = wetvalue
     console.log(slider.value)
   }
 )
@@ -99,4 +104,4 @@ document.addEventListener('keydown',function(e){
         console.log(button)
         button.play()
         button.noteOff()
-      })
+})
