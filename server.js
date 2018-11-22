@@ -36,7 +36,7 @@ io.on('connection',function(socket){
         // when we receive the 'enter-click' event, pass the data we got from
         // the client to all the other connected clients using broadcast.emit(),
         // let's emit an event called 'new-msg' which the clients are
-        // listening for. 
+        // listening for.
         socket.broadcast.emit('new-msg',data)
     })
 
