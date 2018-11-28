@@ -29,10 +29,11 @@ const inputnode = new Tone.Gain()
 inputnode.connect(delay)
 inputnode.connect(delayDry)
 
+
 let matrix = document.createElement("matrixdiv")
 document.body.appendChild(matrix)
-let matrix2 = document.createElement("matrixdiv2")
-document.body.appendChild(matrix2)
+// let matrix2 = document.createElement("matrixdiv2")
+// document.body.appendChild(matrix2)
 
 let buttonArr = []
 for(let i = 0; i < 80; i++){
@@ -41,13 +42,34 @@ for(let i = 0; i < 80; i++){
   let b = new SineButton(scale[idx],parent,inputnode)
   buttonArr.push(b)
 }
-let buttonArr2 = []
-for(let i = 0; i < 80; i++){
-  scale = scale1
-  let idx = i % scale.length
-  let parent = matrix2
-  let b2 = new SineButton(scale1[idx],parent,inputnode)
-  buttonArr.push(b2)
+// let buttonArr2 = []
+// for(let i = 0; i < 80; i++){
+//   scale = scale1
+//   let idx = i % scale.length
+//   let parent = matrix2
+//   let b2 = new SineButton(scale1[idx],parent,inputnode)
+//   buttonArr.push(b2)
+// }
+
+function matrixScaleChange(){
+  //Destroy matrixdiv and reset buttonArr
+  document.body.removeChild(matrix)
+  for(let i = 0; i < 80; i++){
+    let idx = i % scale.length
+    let parent = matrix
+    let b = new SineButton(scale[idx],parent,inputnode)
+    buttonArr.pop(b)
+  }
+  //Repopulate buttonArr with new scale
+  let matrix = document.createElement("matrixdiv")
+  for(let i = 0; i < 80; i++){
+    //how do i get the scale value string to refrence the variable
+    scale = scaleSelect.value
+    let idx = i % scale.length
+    let parent = matrix
+    let b = new SineButton(scale[idx],parent,inputnode)
+    buttonArr.push(b)
+  }
 }
 
 let userVolume = document.body.querySelector("#userVolume")
@@ -68,7 +90,7 @@ matrixAttack.addEventListener('change',()=>{
 let matrixDecay = document.body.querySelector("#decay")
 matrixDecay.addEventListener('change',()=>{
   for (let i=0; i<buttonArr.length; i++){
-    let value = Math.map(matrixDecay.value, 1, 1000, 0, 1)
+    let value = Math.map(matrixDecay.value, 1, 1000, 0, 2)
     buttonArr[i].synth.envelope.decay = value
   }
 })
@@ -115,9 +137,10 @@ matrixFeedback.addEventListener('change',()=>{
     delay.feedback.value = value
 })
 
-document.addEventListener('keydown',function(e){
-        button = buttonArr[Math.round(Math.map(e.keyCode, 1, 230, 1, 30))]
-        console.log(button)
-        button.play()
-        button.noteOff()
-})
+
+// document.addEventListener('keydown',function(e){
+//         button = buttonArr[Math.round(Math.map(e.keyCode, 1, 230, 1, 30))]
+//         console.log(button)
+//         button.play()
+//         button.noteOff()
+// })
