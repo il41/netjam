@@ -1,5 +1,5 @@
 class SineButton {
-  constructor(note,parent,output,key){
+  constructor(note,output,parent){
     this.note = note || "A4"
     // visual
     this.button = document.createElement('button')
@@ -7,12 +7,14 @@ class SineButton {
     this.button.style.borderRadius = "25px"
     this.button.style.width = "50px"
     this.button.style.height = "50px"
+    this.button.id="noteTrigger"
     this.button.addEventListener('mouseover',()=>{
       this.noteOn()
     })
     this.button.addEventListener('mouseout',()=>{
       this.noteOff()
     })
+
 
     parent.appendChild(this.button)
     //Tone

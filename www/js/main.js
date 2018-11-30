@@ -10,6 +10,8 @@ const scales = {
 // socket.io library (included in the index.html page)
 const socket = io()
 
+
+
 const enter = document.querySelector('#enter')
 const userscaletxt = document.querySelector('#userscaletext')
 const userscalename = document.querySelector('#userscalename')
@@ -31,25 +33,36 @@ const inputnode = new Tone.Gain()
 inputnode.connect(delay)
 inputnode.connect(delayDry)
 
+// let sequencer = document.createElement("div")
+// sequencer.className = "sequencerdiv"
+// document.body.appendChild(sequencer)
+//
+// let sequencerInstrumentArr = []
+
 
 let matrix = document.createElement("div")
 matrix.className = "matrixdiv"
 document.body.appendChild(matrix)
-// let matrix2 = document.createElement("matrixdiv2")
-// document.body.appendChild(matrix2)
 
 let buttonArr = []
 for(let i = 0; i < 80; i++){
   let idx = i % scale.length
-  let b = new SineButton(scale[idx],matrix,inputnode)
+  let b = new SineButton(scale[idx],inputnode,matrix)
   buttonArr.push(b)
 }
+
+let noteTriggerList = document.querySelectorAll("#noteTrigger")
+
+
+// let matrix2 = document.createElement("matrixdiv2")
+// document.body.appendChild(matrix2)
+
 // let buttonArr2 = []
 // for(let i = 0; i < 80; i++){
 //   scale = scales["sad2"]
 //   let idx = i % scale.length
 //   let parent = matrix2
-//   let b2 = new SineButton(scale[idx],parent,inputnode)
+//   let b2 = new SineButton(scale[idx],inputnode,parent)
 //   buttonArr.push(b2)
 // }
 
@@ -65,7 +78,7 @@ function matrixScaleChange(){
   for(let i = 0; i < 80; i++){
     scale = scales[scaleSelect.value]
     let idx = i % scale.length
-    let b = new SineButton(scale[idx],matrix,inputnode)
+    let b = new SineButton(scale[idx],inputnode,matrix)
     buttonArr.push(b)
   }
 }
@@ -141,4 +154,13 @@ matrixFeedback.addEventListener('change',()=>{
 //         console.log(button)
 //         button.play()
 //         button.noteOff()
+// })
+//
+// noteTriggerList.addEventListener('mouseover',function(){
+//
+//     socket.broadcast.emit('message', "this is a test");
+// })
+//
+// socket.on('new-msg',function(data){
+//     addNewTextBox(data.name,data.text)
 // })

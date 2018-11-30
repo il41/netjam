@@ -30,6 +30,8 @@
         <div class="scale">
           array 1
           <select name="scales" id="scaleSelect">
+            <option value="sad">sad</option>
+            <option value="sad2">sad2</option>
             <option value="cMaj">cMaj</option>
             <option value="cMin">cMin</option>
             <option value="fifthcircle">fifthcircle</option>
@@ -54,11 +56,12 @@
         <input type="text" placeholder="scale name" id="userscalename"size="10">
         <input type="userscaletext" placeholder="['C4','Eb4','A4','D5','E#5']" id="userscaletext">
         <button id="enter">enter</button>
-
+        </div>
         <script src="/socket.io/socket.io.js"></script>
         <script src="js/Tone.min.js"></script>
         <script src="js/xtramath.js"></script>
-        <script src="js/SineButton.js"></script></div>
+        <script src="js/SineButton.js"></script>
+        <script src="js/BasicSequencer.js"></script>
         <script src="js/main.js"></script>
 
     </body>
