@@ -32,12 +32,19 @@ io.on('connection',function(socket){
 
     // here we're listening for the 'enter-click' event from our client
     // this is an event we made up and we emit on the client side (index.html)
-    socket.on('enter-click',function(data){
+    socket.on('message1',function(data){
         // when we receive the 'enter-click' event, pass the data we got from
         // the client to all the other connected clients using broadcast.emit(),
         // let's emit an event called 'new-msg' which the clients are
         // listening for.
-        socket.broadcast.emit('new-msg',data)
+        socket.broadcast.emit('message1',data)
+    })
+    socket.on('message2',function(data){
+        // when we receive the 'enter-click' event, pass the data we got from
+        // the client to all the other connected clients using broadcast.emit(),
+        // let's emit an event called 'new-msg' which the clients are
+        // listening for.
+        socket.broadcast.emit('message2',data)
     })
 
     // when this particular user disconnects, log this in the terminal

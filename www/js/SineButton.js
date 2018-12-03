@@ -10,9 +10,11 @@ class SineButton {
     this.button.id="noteTrigger"
     this.button.addEventListener('mouseover',()=>{
       this.noteOn()
+      socket.emit('message1', note);
     })
     this.button.addEventListener('mouseout',()=>{
       this.noteOff()
+      socket.emit('message2', note);
     })
 
 
