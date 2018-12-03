@@ -1,20 +1,23 @@
 class SineButton {
-  constructor(note,output,parent){
+  constructor(note,output,parent,number){
+
     this.note = note || "A4"
+    this.number = number //why is this undefined?
     // visual
     this.button = document.createElement('button')
     this.button.innerHTML ='&nbsp;'
     this.button.style.borderRadius = "25px"
     this.button.style.width = "50px"
     this.button.style.height = "50px"
-    this.button.id="noteTrigger"
+    this.button.id="noteTrigger"+number
+    this.button.className="noteTrigger"
     this.button.addEventListener('mouseover',()=>{
       this.noteOn()
-      socket.emit('message1', note);
+      socket.emit('message1', note, this.button.id);
     })
     this.button.addEventListener('mouseout',()=>{
       this.noteOff()
-      socket.emit('message2', note);
+      socket.emit('message2', note, this.button.id);
     })
 
 

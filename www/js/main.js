@@ -47,11 +47,11 @@ document.body.appendChild(matrix)
 let buttonArr = []
 for(let i = 0; i < 80; i++){
   let idx = i % scale.length
-  let b = new SineButton(scale[idx],inputnode,matrix)
+  let b = new SineButton(scale[idx],inputnode,matrix,i)
   buttonArr.push(b)
 }
 
-let noteTriggerList = document.querySelectorAll("#noteTrigger")
+let noteTriggerList = document.querySelectorAll(".noteTrigger")
 
 
 // let matrix2 = document.createElement("matrixdiv2")
@@ -162,5 +162,5 @@ matrixFeedback.addEventListener('change',()=>{
 // })
 //
 // socket.on('new-msg',function(data){
-//     addNewTextBox(data.name,data.text)
+//     button.noteOn(data.name,data.text)
 // })
