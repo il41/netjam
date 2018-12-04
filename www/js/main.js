@@ -156,10 +156,16 @@ matrixFeedback.addEventListener('change',()=>{
 //         button.noteOff()
 // })
 //
-// noteTriggerList.addEventListener('mouseover',function(){
-//
-//     socket.broadcast.emit('message', "this is a test");
-// })
+for(let i = 0; i<buttonArr.length;i++){
+  noteTriggerList[i].addEventListener('mouseover',function(){
+      socket.emit('message1', "mouseover");
+      console.log(noteTriggerList[i].synth) //why is the synth undefined?
+  })
+  noteTriggerList[i].addEventListener('mouseout',function(){
+      socket.emit('message2', "mouseout");
+  })
+}
+
 //
 // socket.on('new-msg',function(data){
 //     button.noteOn(data.name,data.text)
