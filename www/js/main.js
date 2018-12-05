@@ -10,7 +10,8 @@ const scales = {
 // socket.io library (included in the index.html page)
 const socket = io()
 
-
+const changeScale = document.querySelector('#changeScale')
+const heightNote = document.querySelector('#heightNoteCheckBox')
 
 const enter = document.querySelector('#enter')
 const userscaletxt = document.querySelector('#userscaletext')
@@ -153,6 +154,7 @@ matrixFeedback.addEventListener('change',()=>{
     delay.feedback.value = value
 })
 
+changeScale.onclick = function(){matrixScaleChange()};
 
 // document.addEventListener('keydown',function(e){
 //         button = buttonArr[Math.round(Math.map(e.keyCode, 1, 230, 1, 30))]
@@ -161,17 +163,38 @@ matrixFeedback.addEventListener('change',()=>{
 //         button.noteOff()
 // })
 //
-for(let i = 0; i<buttonArr.length;i++){
-  noteTriggerList[i].addEventListener('mouseover',function(){
-      socket.emit('message1', "mouseover");
-      console.log(noteTriggerList[i].synth) //why is the synth undefined?
-  })
-  noteTriggerList[i].addEventListener('mouseout',function(){
-      socket.emit('message2', "mouseout");
-  })
-}
 
-//
-// socket.on('new-msg',function(data){
-//     button.noteOn(data.name,data.text)
-// })
+// for(let i = 0; i<buttonArr.length;i++){
+//   noteTriggerList[i].addEventListener('mouseover',function(){
+//       socket.emit('matrixOn', buttonArr[i].noteOn());
+//   })
+//   noteTriggerList[i].addEventListener('mouseout',function(){
+//       socket.emit('matrixOff', buttonArr[i].noteOff());
+//   })
+// }
+
+
+// socket.on('matrixOn',data){
+//   buttonArr[data.number].noteOn()
+// }
+// socket.on('matrixOff',data){
+//   buttonArr[data.number].noteOff()
+// }
+
+socket.on('matrixOnSignal',function(data){
+    // if(heightNote.checked !== false){
+    //   if(buttonArr[data.number].note !== data.note){
+    //     let tempsyn = new Tone.Synth()
+    //     tempsyn.connect(inputnode)
+    //     tempsyn.synth.oscillator.frequency = window.innerHeight
+    //     tempsyn.triggerAttack
+    //     tempsyn.triggerRelease
+    //   }
+    // } else {
+    //     buttonArr[data.number].noteOn()
+    // }
+    buttonArr[data.number].noteOn()
+})
+socket.on('matrixOffSignal',function(data){
+    buttonArr[data.number].noteOff()
+})

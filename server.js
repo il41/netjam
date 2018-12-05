@@ -28,20 +28,21 @@ app.use( express.static(__dirname+'/www') )
 // here we use socket.io to listen for connections from new clients
 io.on('connection',function(socket){
     // when a new user connects, log this in the terminal
-    console.log('new user!')
+    console.log('new user! id is ' + socket.id)
 
     // here we're listening for the 'enter-click' event from our client
     // this is an event we made up and we emit on the client side (index.html)
-    socket.on('message1',function(data){
+    socket.on('matrixOn',function(data){
         // when we receive the 'enter-click' event, pass the data we got from
         // the client to all the other connected clients using broadcast.emit(),
         // let's emit an event called 'new-msg' which the clients are
         // listening for.
-        socket.broadcast.emit('message1',data)
+        socket.broadcast.emit('matrixOnSignal',data)
+        console.log(data)
     })
-    socket.on('message2',function(data){
+    socket.on('matrixOff',function(data){
 
-        socket.broadcast.emit('message2',data)
+        socket.broadcast.emit('matrixOffSignal',data)
     })
 
     // when this particular user disconnects, log this in the terminal
