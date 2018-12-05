@@ -53,18 +53,23 @@ for(let i = 0; i < 80; i++){
 
 let noteTriggerList = document.querySelectorAll(".noteTrigger")
 
+let matrix2 = {}
+function xtra(){
+matrix2 = document.createElement("matrixdiv2")
+document.body.appendChild(matrix2)
 
-// let matrix2 = document.createElement("matrixdiv2")
-// document.body.appendChild(matrix2)
-
-// let buttonArr2 = []
-// for(let i = 0; i < 80; i++){
-//   scale = scales["sad2"]
-//   let idx = i % scale.length
-//   let parent = matrix2
-//   let b2 = new SineButton(scale[idx],inputnode,parent)
-//   buttonArr.push(b2)
-// }
+let buttonArr2 = []
+for(let i = 0; i < 80; i++){
+  scale = scales["sad2"]
+  let idx = i % scale.length
+  let parent = matrix2
+  let b2 = new SineButton(scale[idx],inputnode,parent)
+  buttonArr.push(b2)
+}
+}
+function rmv(){
+  document.body.removeChild(matrix2)
+}
 
 function matrixScaleChange(){
   //Destroy matrix div and reset buttonArr
