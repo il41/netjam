@@ -47,7 +47,7 @@ const comp = new Tone.Compressor().toMaster()
 //
 // let noteTriggerList = document.querySelectorAll(".noteTrigger")
 
-//let bubble = new BubbleMatrix({parent:document.body})
+let bubble = new BubbleMatrix({parent:'#main'})
 
 let matrix2 = {}
 function xtra(){
