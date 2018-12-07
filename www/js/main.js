@@ -139,8 +139,7 @@ delayDryWet.addEventListener('change',()=>{
     let outputScreen = document.body.querySelector("#outputScreen")
     outputScreen.innerHTML = wetvalue
     console.log(slider.value)
-  }
-)
+})
 
 let matrixDelayTime = document.body.querySelector("#delayTime")
 matrixDelayTime.addEventListener('change',()=>{
@@ -182,17 +181,18 @@ changeScale.onclick = function(){matrixScaleChange()};
 // }
 
 socket.on('matrixOnSignal',function(data){
-    // if(heightNote.checked !== false){
-    //   if(buttonArr[data.number].note !== data.note){
-    //     let tempsyn = new Tone.Synth()
-    //     tempsyn.connect(inputnode)
-    //     tempsyn.synth.oscillator.frequency = window.innerHeight
-    //     tempsyn.triggerAttack
-    //     tempsyn.triggerRelease
-    //   }
-    // } else {
-    //     buttonArr[data.number].noteOn()
-    // }
+    if(heightNote.checked !== false){
+      if(buttonArr[data.number].note !== data.note){
+        let tempsyn = new Tone.Synth()
+        console.log(tempsyn)
+        tempsyn.connect(inputnode)
+        tempsyn.oscillator.frequency = window.innerHeight
+        tempsyn.triggerAttack
+        tempsyn.triggerRelease
+      }
+    } else {
+        buttonArr[data.number].noteOn()
+    }
     buttonArr[data.number].noteOn()
 })
 socket.on('matrixOffSignal',function(data){
