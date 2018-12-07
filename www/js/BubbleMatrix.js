@@ -53,6 +53,6 @@ class BubbleMatrix extends Instrument(){
       }
     })
     this.bubbleEnvelope.appendChild(this.release)
-
+    this.container.appendChild(this.bubbleEnvelope)
   }
 }
