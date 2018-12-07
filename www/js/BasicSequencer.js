@@ -33,7 +33,7 @@ class BasicSequencer {
     //   parent.appendChild(this.div)
     // }
 
-    
+
     // synths.forEach(function (synth) {
     //   return synth.connect(output);
     // });
