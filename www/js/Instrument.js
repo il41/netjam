@@ -1,8 +1,8 @@
 class Instrument {
   constructor(config){
     if(config.parent) this.createGUI(config.parent)
-    this.makeFx()
     this.makeSource()
+    this.makeFx()
   }
 
   createGUI(selector){
@@ -56,17 +56,19 @@ class Instrument {
   makeSource(){
     this.output = new Tone.Gain()
     this.fxIn = new Tone.Gain()
-    this.fxIn.connect(this.delay)
-    this.fxIn.connect(this.delayDry)
+
   }
 
-  makeFx(){s
+  makeFx(){
     this.delay = new Tone.FeedbackDelay()
     this.delayDry = new Tone.Gain()
     this.delayWet = new Tone.Gain()
+    this.fxIn.connect(this.delay)
+    this.fxIn.connect(this.delayDry)
     this.delay.connect(this.delayWet)
     this.delayWet.connect(this.output)
     this.delayDry.connect(this.output)
+
   }
 }
 
