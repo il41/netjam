@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>kinetics</title>
+    <style>
+      body{
+        background-image: url("images/kinetics.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #cccccc;
+        highlight: white;
+        color: white;
+        text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <h1>kinetics</h1>
+    <h3>in the virtual world of kinetics, users can get together and jam together on simulated and fictional instruments</h3>
+      <br>
+    make music together in virtual space :)
+    <br>
+    currently we have drums and a cube array
+    <br>
+    <img src = images/drums7.png height="150" width="150"></img>
+    <br>
+    <img src = images/array65.png height="150" width="150"></img>
+    <br>
+    <br>
+    in the near future, multiplayer networks and avatars will be enabled, along with more instruments and sounds
+    <br>
+    <br>
+    <h4>planned improvements</h4>
+    currently, the sky is sound reactive, but reacts overly fast and will be smoothed in the future. its lighting will also be fixed
+    <br>
+    <br>
+    more instruments will be created with physical modeling and scripts. it would also be fun to add physics based instruments.
+    <br>
+    some sort of visual feedback on the object to show the sound has been played will also be implemented
+    <br>
+    <br>
+    the multiplayer aspect is the next major step for this project, enabling real-time music collaboration in a virtual world
+    <br>
+    <video width="320" height="240" loop autoplay>
+ <source src="videos/array.mp4" type="video/mp4">
+
+Your browser does not support the video tag.
+</video>
+<video width="320" height="240" loop autoplay>
+<source src="videos/drums.mp4" type="video/mp4">
+
+Your browser does not support the video tag.
+</video>
+<script type="text/javascript">
+  var box = document.body,
+    colors = ['purple', 'yellow', 'orange', 'brown', 'black'];
+
+box.onclick = function () {
+    color = colors.shift();
+    colors.push(color);
+
+    box.style.backgroundColor = color;
+};
+</script>
+  </body>
+</html>
